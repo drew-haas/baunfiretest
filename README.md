@@ -1,6 +1,6 @@
 # baunfiretest
 
-Code Exercise for Baunfire.\
+Code Exercise for Baunfire.
 [See it here](https://drew-haas.github.io/baunfiretest/)
 
 ### Prerequisites
@@ -9,13 +9,13 @@ Latest version of [node](https://www.npmjs.com/get-npm) recommended
 
 ## Starting the project
 
-in your terminal navigate to the project and run:\
+in your terminal navigate to the project and run:
 
-`npm install`\
+`npm install`
 
-then:\
+then:
 
-`node index`\
+`node index`
 
 Navigate to `localhost:8000` in your browser and you should see the site.
 
