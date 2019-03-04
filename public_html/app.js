@@ -36,7 +36,7 @@ window.onload = function(){
         direction = 'next';
         
         // animate old text out
-        //animateTextOut(activeIndex);
+        animateTextOut(activeIndex);
 
         // remove classes
         sliderItems.forEach(function(el){
@@ -60,7 +60,7 @@ window.onload = function(){
 
         sliderImages[activeIndex].classList.add('active');
 
-        //animateTextIn(activeIndex);
+        animateTextIn(activeIndex);
 
         // reset circles/run animation
         resetCircles();
@@ -72,7 +72,7 @@ window.onload = function(){
         direction = 'previous';
 
         // animate old text out
-        //animateTextOut(activeIndex);
+        animateTextOut(activeIndex);
 
         // remove classes
         sliderItems.forEach(function(el){
@@ -96,7 +96,7 @@ window.onload = function(){
         sliderItems[activeIndex == 0 ? sliderItems.length - 1 : activeIndex - 1].classList.add('next');
 
         sliderImages[activeIndex].classList.add('active');
-        //animateTextIn(activeIndex);
+        animateTextIn(activeIndex);
 
         // reset circles/run animation
         resetCircles();
@@ -117,7 +117,7 @@ window.onload = function(){
         TweenMax.to(circle, timer, {strokeDashoffset: 0, ease: 'linear', onComplete: direction == 'previous' ? goToPrevious : goToNext});
     }
 
-    /* // text animation out
+    // text animation out
     function animateTextOut(index){
         var items = sliderItems[index].querySelectorAll('.animation-item');
         TweenMax.set(items, {opacity: 1});
@@ -129,7 +129,7 @@ window.onload = function(){
         var items = sliderItems[index].querySelectorAll('.animation-item');
         TweenMax.set(items, {y: 20, opacity: 0});
         TweenMax.staggerTo(items, .7, {y: 0, opacity: 1, ease: Power4.easeOut, delay: .2}, .1);
-    } */
+    }
 
     // Call Initial functions
     setHeight();

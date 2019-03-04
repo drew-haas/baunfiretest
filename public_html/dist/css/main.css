@@ -327,25 +327,19 @@ nav {
       position: absolute;
       max-width: 370px;
       padding: 40px 0 0 50px;
-      transform: translate(95%) scale(0.8);
-      opacity: 0;
       font-weight: 300;
-      transition: 0.6s cubic-bezier(0.86, 0, 0.07, 1);
-      /* &.previous {
+      /* &.next {
                 opacity: .4;
                 transition: .6s cubic-bezier(0.86, 0, 0.07, 1);
             } */ }
-      .slider .slider_text-item.next {
-        opacity: .4;
-        transition: 0.6s cubic-bezier(0.86, 0, 0.07, 1); }
       .slider .slider_text-item.active {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-        transition: 0.6s cubic-bezier(0.86, 0, 0.07, 1); }
+        /* transform: translate(0,0) scale(1);
+                opacity: 1;
+                transition: .6s cubic-bezier(0.86, 0, 0.07, 1); */ }
         .slider .slider_text-item.active .animation-item {
           opacity: 1; }
       .slider .slider_text-item .animation-item {
-        opacity: 1;
+        opacity: 0;
         position: relative; }
       .slider .slider_text-item .number {
         color: #fff;
