@@ -66,27 +66,33 @@
             position: absolute;
             max-width: 370px;
             padding: 40px 0 0 50px;
-            //transform: translate(95%) scale(0.8);
-            //opacity: 0;
+            transform: translate(95%) scale(0.8);
+            opacity: 0;
             font-weight: 300;
-            //transition: .5s cubic-bezier(0.86, 0, 0.07, 1);
+            transition: .6s cubic-bezier(0.86, 0, 0.07, 1);
 
             /* &.previous {
                 opacity: .4;
-                transition: .5s cubic-bezier(0.86, 0, 0.07, 1);
+                transition: .6s cubic-bezier(0.86, 0, 0.07, 1);
             } */
 
+            &.next {
+                opacity: .4;
+                transition: .6s cubic-bezier(0.86, 0, 0.07, 1);
+            }
+
             &.active {
-                /* transform: translate(0,0) scale(1);
+                transform: translate(0,0) scale(1);
                 opacity: 1;
-                transition: .5s cubic-bezier(0.86, 0, 0.07, 1); */
+                transition: .6s cubic-bezier(0.86, 0, 0.07, 1);
+                
                 .animation-item {
                     opacity: 1;
                 }
             }
 
             .animation-item {
-                opacity: 0;
+                opacity: 1;
                 position: relative;
             }
 
