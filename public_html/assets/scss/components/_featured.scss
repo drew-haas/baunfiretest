@@ -1,0 +1,93 @@
+.featured {
+    @extend .section-padding;
+    padding-bottom: 200px;
+    overflow: hidden;
+
+    h2, p, ul, a {
+        color: $primary;
+    }
+
+    h2 {
+        font-size: 38px;
+        font-weight: 300;
+    }
+
+    p {
+        font-size: 17px;
+        font-weight: 100;
+    }
+
+    &_content {
+        max-width: 950px;
+        width: $containerWidth;
+        margin: 0 auto;
+        position: relative;
+
+        &-text {
+            max-width: 400px;
+            padding-left: 40px;
+        }
+
+        &-image {
+            position: absolute;
+            right: -60px;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        ul {
+            margin-top: 80px;
+            list-style-type: none;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 40px;
+                position: relative;
+                max-width: 310px;
+
+                a {
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    transition: color .3s;
+
+                    &:hover {
+                        color: $green;
+                        transition: color .3s;
+                        
+                        &:after {
+                            transform: rotate(45deg) translate(4px, -4px);
+                            border-color: $green;
+                            transition: .3s ease-out;
+                        }
+                    }
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: 4px;
+                        width: 6px;
+                        height: 6px;
+                        border-top: 2px solid $primary;
+                        border-right: 2px solid $primary;
+                        transform: rotate(45deg);
+                        transition: .3s ease-out;
+                    }
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &-item-icon {
+            display: flex;
+            align-items: center;
+            margin-right: 25px;
+        }
+    }
+}

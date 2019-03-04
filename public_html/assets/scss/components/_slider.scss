@@ -1,0 +1,180 @@
+.slider {
+    @extend .section-padding;
+    display: flex;
+    background-image: url('../../assets/images/slider-background.jpg');
+    background-size: cover;
+
+    .slider_images {
+        width: 46%;
+        position: relative;
+
+        .slider_image {
+            width: 100%;
+            position: absolute;
+            box-shadow: 0px 5px 45px -10px rgba(0,0,0,0.25);
+            transform: translate(-200px, -200px);
+
+            &.active {
+                z-index: 1;
+                transform: translate(0, 0);
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    h3, h4, p {
+        color: #fff;
+    }
+
+    .slider_text {
+        width: 54%;
+        position: relative;
+        overflow: hidden;
+
+        &-container {
+            padding-left: 80px;
+        }
+
+        &-items {
+            position: relative;
+        }
+
+        &-item {
+            position: absolute;
+            max-width: 370px;
+            padding: 40px 0 0 50px;
+            //transform: translate(95%) scale(0.8);
+            //opacity: 0;
+            font-weight: 300;
+            //transition: .5s cubic-bezier(0.86, 0, 0.07, 1);
+
+            /* &.previous {
+                opacity: .4;
+                transition: .5s cubic-bezier(0.86, 0, 0.07, 1);
+            } */
+
+            &.active {
+                /* transform: translate(0,0) scale(1);
+                opacity: 1;
+                transition: .5s cubic-bezier(0.86, 0, 0.07, 1); */
+                .animation-item {
+                    opacity: 1;
+                }
+            }
+
+            .animation-item {
+                opacity: 0;
+            }
+
+            .number {
+                color: #fff;
+                font-size: 150px;
+                opacity: .1;
+                position: absolute;
+                line-height: .5;
+                left: -50px;
+                letter-spacing: -10px;
+                top: -40px;
+            }
+
+            .title {
+                font-size: 28px;
+                margin: 0;
+                font-weight: 300;
+            }
+
+            .subtitle {
+                font-size: 17px;
+                opacity: .5;
+                margin: 10px 0 30px;
+                font-weight: 200;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .description {
+                font-size: 17px;
+                margin: 0;
+                font-weight: 200;
+            }
+        }
+
+        &-arrows {
+            margin: 50px 0 20px;
+            padding-left: 50px;
+            position: relative;
+            display: flex;
+
+            .arrow {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                border: 4px solid rgba(255,255,255,0);
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                overflow: visible;
+                transition: .3s;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: relative;
+                    width: 12px;
+                    height: 12px;
+                    border-top: 2px solid #fff;
+                    border-right: 2px solid #fff;
+                    border-radius: 2px;
+                    transition: .3s;
+                }
+
+                &:hover {
+                    box-shadow: 0px 5px 45px -10px rgba(0,0,0,0.25);
+                    transition: .3s;
+
+                    &:after {
+                        border-color: $greenLighter;
+                        transition: .3s;
+                    }
+                }
+
+                &.arrow-prev {
+                    margin-right: 20px;
+
+                    &:after {
+                        transform: rotate(-135deg) translate(-2px, 2px);
+                    }
+                }
+
+                &.arrow-next {
+                    &:after {
+                        transform: rotate(45deg) translate(-2px, 2px);
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    overflow: visible;
+
+                    circle.animator {
+                        stroke: $greenLighter;
+                        stroke-dashoffset: 0;
+                        transform-origin: 50% 50%;
+                        transform: rotate(-90deg);
+                    }
+
+                    circle.placeholder {
+                        stroke: rgba(255,255,255,.3);
+                    }
+                }
+            }
+        }
+    }
+}

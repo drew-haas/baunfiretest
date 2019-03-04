@@ -1,0 +1,98 @@
+// colors
+$primary: #001b50;
+$green: #0bcab5;
+$greenLighter: #1ee5cf;
+$blue: #2669ff;
+$blueDarker: #1855db;
+
+// window sizes
+$screen-lg: 1200px;
+$screen-md: 992px;
+$screen-sm: 767px;
+$screen-xs: 480px;
+
+// container sizes
+$containerMax: 850px;
+$containerWidth: 90%;
+
+// global styles
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Helvetica', sans-serif;
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+}
+
+h1, h2 ,h3, h4, h5 {
+    color: #fff;
+    font-family: ff-tisa-sans-web-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 22px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+// Button and Link Styles
+.btn_pill {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: $green;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: .3s;
+
+    &:hover {
+        box-shadow: 0px 5px 45px -10px rgba(0,0,0,0.4);
+        transition: .3s;
+    }
+}
+
+.btn_pill-border {
+    @extend .btn_pill;
+    border: 2px solid $greenLighter;
+    background: none;
+    color: $greenLighter;
+}
+
+
+// Section specifics
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    font-size: 13px;
+    color: $blueDarker;
+    display: flex;
+    align-items: center;
+
+    &:after {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 1px;
+        background-color: $blueDarker;
+        margin-left: 10px;
+    }
+}
