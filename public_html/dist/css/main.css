@@ -96,7 +96,7 @@ nav {
     @media screen and (max-width: 992px) {
       nav .nav_main {
         display: block; } }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 767px) {
       nav .nav_main {
         float: left; }
         nav .nav_main ul {
