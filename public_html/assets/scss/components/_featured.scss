@@ -26,6 +26,12 @@
         &-text {
             max-width: 400px;
             padding-left: 40px;
+            width: 50%;
+
+            @media screen and (max-width: $screen-sm) {
+                margin: 0 auto 40px;
+                width: 90%;
+            }
         }
 
         &-image {
@@ -33,6 +39,22 @@
             right: -60px;
             bottom: 0;
             z-index: -1;
+
+            @media screen and (max-width: $screen-md) {
+                right: -20px;
+                width: 50%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            @media screen and (max-width: $screen-sm) {
+                position: relative;
+                width: 70%;
+                margin: 0 auto;
+                right: 0;
+            }
         }
 
         ul {
