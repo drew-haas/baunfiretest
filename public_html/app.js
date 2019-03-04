@@ -5,6 +5,7 @@ window.onload = function(){
     // Global Variables
     const sliderContainer = document.querySelector('.slider_text-items');
     let sliderItems = document.querySelectorAll('.slider_text-item');
+    let sliderImages = document.querySelectorAll('.slider_image');
     const nextArrow = document.querySelector('.arrow-next');
     const prevArrow = document.querySelector('.arrow-prev');
     let circleNext = document.querySelector('.arrow-next circle.animator');
@@ -27,7 +28,17 @@ window.onload = function(){
     function goToNext() {
         direction = 'next';
         
-        animateTextOut(activeIndex);        
+        // animate old text out
+        animateTextOut(activeIndex);
+
+        // remove classes
+        sliderItems.forEach(function(el){
+            el.classList.remove('active','previous');
+        });
+        sliderItems[activeIndex].classList.add('previous');
+        sliderImages.forEach(function(el){
+            el.classList.remove('active');
+        });
 
         // update index
         activeIndex += 1;
@@ -38,24 +49,30 @@ window.onload = function(){
 
         // add active to new item
         sliderItems[activeIndex].classList.add('active');
+        sliderImages[activeIndex].classList.add('active');
         animateTextIn(activeIndex);
 
-        // reset circles/animation
+        // reset circles/run animation
         resetCircles();
         runCircleAnimation(circleNext, direction);
-        animateImages(direction);
     }
 
     // transition to previous slide
     function goToPrevious() {
         direction = 'previous';
 
-        // remove active and add previous to old item
-        /* sliderItems.forEach(function(el){
+        // animate old text out
+        animateTextOut(activeIndex);
+
+        // remove classes
+        sliderItems.forEach(function(el){
             el.classList.remove('active','previous');
         });
-        sliderItems[activeIndex].classList.add('previous'); */
-        animateTextOut(activeIndex);
+        sliderItems[activeIndex].classList.add('previous');
+
+        sliderImages.forEach(function(el){
+            el.classList.remove('active');
+        });
         
         // update index
         activeIndex -= 1;
@@ -64,22 +81,19 @@ window.onload = function(){
             activeIndex = sliderItems.length - 1;
         }
 
-        // set active item
+        // add active to new item
         sliderItems[activeIndex].classList.add('active');
+        sliderImages[activeIndex].classList.add('active');
         animateTextIn(activeIndex);
 
-        // run animations
+        // reset circles/run animation
         resetCircles();
         runCircleAnimation(circlePrev, direction);
-        animateImages(direction);
     }
 
+    // remove active and previous classes add previous to old item
     function changeClasses() {
-        // remove active and add previous to old item
-        sliderItems.forEach(function(el){
-            el.classList.remove('active','previous');
-        });
-        sliderItems[activeIndex].classList.add('previous');
+        
     }
 
     // reset circles stroke positions
@@ -96,21 +110,26 @@ window.onload = function(){
         TweenMax.to(circle, timer, {strokeDashoffset: 0, ease: 'linear', onComplete: direction == 'previous' ? goToPrevious : goToNext});
     }
 
+    // text animation out
     function animateTextOut(index){
         var items = sliderItems[index].querySelectorAll('.animation-item');
         TweenMax.staggerTo(items, .7, {y: 20, opacity: 0, ease: Power4.easeOut, onComplete: changeClasses}, .1);
     }
 
+    // text animation in
     function animateTextIn(index) {
         var items = sliderItems[index].querySelectorAll('.animation-item');
         TweenMax.set(items, {y: 20, opacity: 0});
-        TweenMax.staggerTo(items, 1, {y: 0, opacity: 1, ease: Power4.easeOut, delay: .3}, .2);
+        TweenMax.staggerTo(items, .7, {y: 0, opacity: 1, ease: Power4.easeOut, delay: .2}, .2);
     }
 
     // animate images to correct item
-    function animateImages(direction) {
-
-    }
+    /* function animateImages(direction) {
+        // stagger boxes over images
+        // change images
+        // change box direction
+        // stagger boxes out
+    } */
 
     // Call Initial functions
     setHeight();
@@ -118,7 +137,7 @@ window.onload = function(){
     runCircleAnimation(circleNext, direction);
 
     /* 
-    * on arrow clicks
+    * event listeners
     */
     nextArrow.addEventListener('click', function() {
         goToNext();
