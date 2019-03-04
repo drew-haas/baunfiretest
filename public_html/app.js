@@ -1,6 +1,7 @@
-// Directions: TODO:
-// create a timer
-// animate the percentage of the circle based on the percent of the timing
+/* 
+* Create Slider Section with animating time transitions
+* - using svgs, gsap, and vanilla js
+*/
 window.onload = function(){
     // Global Variables
     const sliderContainer = document.querySelector('.slider_text-items');
@@ -22,6 +23,12 @@ window.onload = function(){
         let h = 0;
         sliderItems.forEach(function(el) { h = h <= el.offsetHeight ? el.offsetHeight : h; });
         sliderContainer.setAttribute('style', 'min-height: ' + h + 'px');
+    }
+
+    function setImageHeight() {
+        let h = 0;
+        sliderImages.forEach(function(el) {h = h <= el.offsetHeight ? el.offsetHeight : h; });
+        document.querySelector('.slider_images').setAttribute('style', 'min-height: ' + h + 'px');
     }
 
     // transition to next slide
@@ -91,11 +98,6 @@ window.onload = function(){
         runCircleAnimation(circlePrev, direction);
     }
 
-    // remove active and previous classes add previous to old item
-    function changeClasses() {
-        
-    }
-
     // reset circles stroke positions
     function resetCircles() {
         // TODO: reset both circles at once
@@ -113,28 +115,24 @@ window.onload = function(){
     // text animation out
     function animateTextOut(index){
         var items = sliderItems[index].querySelectorAll('.animation-item');
-        TweenMax.staggerTo(items, .7, {y: 20, opacity: 0, ease: Power4.easeOut, onComplete: changeClasses}, .1);
+        TweenMax.set(items, {opacity: 1});
+        TweenMax.staggerTo(items, .7, {y: 20, opacity: 0, ease: Power4.easeOut}, .1);
     }
 
     // text animation in
     function animateTextIn(index) {
         var items = sliderItems[index].querySelectorAll('.animation-item');
         TweenMax.set(items, {y: 20, opacity: 0});
-        TweenMax.staggerTo(items, .7, {y: 0, opacity: 1, ease: Power4.easeOut, delay: .2}, .2);
+        TweenMax.staggerTo(items, .7, {y: 0, opacity: 1, ease: Power4.easeOut, delay: .2}, .1);
     }
-
-    // animate images to correct item
-    /* function animateImages(direction) {
-        // stagger boxes over images
-        // change images
-        // change box direction
-        // stagger boxes out
-    } */
 
     // Call Initial functions
     setHeight();
     resetCircles();
     runCircleAnimation(circleNext, direction);
+    if(window.innerWidth <= 767) {
+        setImageHeight();
+    }
 
     /* 
     * event listeners
@@ -152,5 +150,9 @@ window.onload = function(){
     */
     window.onresize = function(){
         setHeight();
+        
+        if(window.innerWidth <= 767) {
+            setImageHeight();
+        }
     };
 };
