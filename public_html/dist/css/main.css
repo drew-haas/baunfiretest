@@ -285,7 +285,8 @@ nav {
         .slider .slider_text-item.active .animation-item {
           opacity: 1; }
       .slider .slider_text-item .animation-item {
-        opacity: 0; }
+        opacity: 0;
+        position: relative; }
       .slider .slider_text-item .number {
         color: #fff;
         font-size: 150px;
