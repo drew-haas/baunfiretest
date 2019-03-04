@@ -1,7 +1,7 @@
 # baunfiretest
 
 Code Exercise for Baunfire.
-[See it here](https://drew-haas.github.io/baunfiretest/)
+[See it here](https://drew-haas.github.io/baunfiretest/public_html)
 
 ### Prerequisites
 
